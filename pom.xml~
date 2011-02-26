@@ -1,0 +1,82 @@
+<project>
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.mycompany.app1</groupId>
+       <artifactId>neotest2</artifactId>j
+       <name>Neo test 1</name>
+       <version>0.1-SNAPSHOT</version>
+       <packaging>jar</packaging>
+
+       <build>
+               <defaultGoal>compile</defaultGoal>
+               <plugins>
+                       <plugin>
+                               <groupId>org.apache.maven.plugins</groupId>
+                               <artifactId>maven-compiler-plugin</artifactId>
+                               <configuration>
+                                       <source>1.6</source>
+                                       <target>1.6</target>
+                               </configuration>
+                       </plugin>
+		       <plugin>
+			 <groupId>org.codehaus.mojo</groupId>
+			 <artifactId>exec-maven-plugin</artifactId>
+			     <executions>  
+			        <execution>  
+			          <phase>test</phase>  
+			           <goals>  
+			              <goal>java</goal>  
+			             </goals>  
+			           <configuration>  
+			              <mainClass>com.mycompany.app1.neotest</mainClass>  
+			             </configuration>  
+			          </execution>  
+			       </executions>
+		       </plugin>
+               </plugins>
+       </build>
+       
+       <dependencies>
+               <dependency>
+                       <groupId>org.neo4j</groupId>
+                       <artifactId>neo4j-kernel</artifactId>
+                       <version>1.1-SNAPSHOT</version>
+               </dependency>
+               <dependency>
+                       <groupId>org.neo4j</groupId>
+                       <artifactId>neo4j-rdf</artifactId>
+                       <version>0.7-SNAPSHOT</version>
+               </dependency>
+               <dependency>
+                       <groupId>org.neo4j</groupId>
+                       <artifactId>neo4j-index</artifactId>
+                       <version>1.1-SNAPSHOT</version>
+               </dependency>
+               <dependency>
+                       <groupId>org.neo4j</groupId>
+                       <artifactId>neo4j-meta-model</artifactId>
+                       <version>0.9-SNAPSHOT</version>
+               </dependency>
+               <dependency>
+                       <groupId>org.neo4j</groupId>
+                       <artifactId>neo4j-rdf-sparql</artifactId>
+                       <version>0.6-SNAPSHOT</version>
+               </dependency>
+	       <dependency>
+		 <groupId>external</groupId>
+		 <artifactId>sparql-engine</artifactId>
+		 <version>0.8</version>
+	       </dependency>
+
+       </dependencies>
+ 
+       <repositories>
+               <repository>
+                       <id>neo4j-public-repository</id>
+                       <name>Publically available Maven 2 repository for Neo4j</name>
+                       <url>http://m2.neo4j.org</url>
+                       <snapshots>
+                               <enabled>true</enabled>
+                       </snapshots>
+               </repository>
+       </repositories>
+</project>
